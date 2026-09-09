@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pocket Tales - Personalized Bedtime Stories</title>
+    <style>
+        :root {
+            --magic-purple: #6c5ce7;
+            --soft-violet: #f3f0ff;
+            --deep-violet: #4a3cb0;
+            --night-sky: #2d3436;
+            --card-bg: #ffffff;
+            --text-dark: #2d3436;
+            --text-muted: #57606f;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #faf9ff;
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Bloque Principal Modificado: Cuadro Violeta Prominente */
+        header {
+            text-align: center;
+            padding: 60px 40px;
+            background-color: var(--soft-violet);
+            border-radius: 24px;
+            border: 2px solid #e8e3ff;
+            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.05);
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--magic-purple);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            color: var(--deep-violet);
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: var(--text-dark);
+            max-width: 650px;
+            margin: 0 auto 40px auto;
+            font-weight: 500;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--magic-purple), #8e2de2);
+            color: white;
+            padding: 18px 38px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px rgba(108, 92, 231, 0.4);
+        }
+
+        /* Marcadores para tus Caricaturas e Imágenes */
+        .image-placeholder {
+            width: 100%;
+            max-width: 400px;
+            height: 220px;
+            background-color: #e8e6f8;
+            border: 2px dashed var(--magic-purple);
+            border-radius: 16px;
+            margin: 30px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--deep-violet);
+            font-size: 15px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 22px;
+            margin: 60px 0;
+        }
+
+        @media (min-width: 600px) {
+            .features { grid-template-columns: 1fr 1fr; }
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 32px 26px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            border-top: 5px solid transparent;
+            text-align: center;
+        }
+
+        .card .icon-badge {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin: 0 auto 16px auto;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+        }
+
+        /* Cada tarjeta con su propio tono, ligado al universo nocturno/mágico */
+        .card-purple {
+            border-top-color: #6c5ce7;
+        }
+        .card-purple .icon-badge {
+            background: #efeafd;
+            color: #6c5ce7;
+        }
+        .card-purple h3 { color: #6c5ce7; }
+
+        .card-pink {
+            border-top-color: #e84393;
+        }
+        .card-pink .icon-badge {
+            background: #fdeaf3;
+            color: #e84393;
+        }
+        .card-pink h3 { color: #e84393; }
+
+        .card-blue {
+            border-top-color: #0984e3;
+        }
+        .card-blue .icon-badge {
+            background: #e6f3fd;
+            color: #0984e3;
+        }
+        .card-blue h3 { color: #0984e3; }
+
+        .card-gold {
+            border-top-color: #e2a13d;
+        }
+        .card-gold .icon-badge {
+            background: #fbf1e0;
+            color: #e2a13d;
+        }
+        .card-gold h3 { color: #e2a13d; }
+
+        /* Preview Area */
+        .story-preview {
+            background: #fff;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+            margin: 60px 0;
+            border: 1px solid #e1e1e1;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            text-align: center;
+            background: #fff;
+            padding: 50px 40px;
+            border-radius: 24px;
+            border: 3px solid var(--magic-purple);
+            margin: 60px 0;
+        }
+
+        .price { 
+            font-size: 56px; 
+            font-weight: bold; 
+            margin: 20px 0; 
+        }
+        
+        .price span { 
+            font-size: 20px; 
+            color: var(--text-muted); 
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+            padding: 30px 0;
+            border-top: 1px solid #e8e8e8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Hero Box Modificado con más presencia visual -->
+        <header>
+            <div class="logo">✨ Pocket Tales</div>
+            <h1>Personalized Bedtime Stories, Just for Your Child.</h1>
+            <p class="subtitle">A magical, custom-written adventure delivered to your inbox every single week. Written with creativity, polished by hand.</p>
+            <a href="#" class="cta-btn">Start Your Child's Adventure</a>
+            
+            <!-- MARCADOR DE IMAGEN 1: Niño/Niña durmiendo en las nubes -->
+            <div class="image-placeholder">
+                ☁️ 😴 🌟 <br>
+                <strong>[Ilustración 1: Caricatura de niño y niña durmiendo en una nube]</strong>
+                <span style="font-size: 12px; color: var(--text-muted); margin-top: 5px;">(Tip: Usa Midjourney o DALL-E para generarla en acuarela)</span>
+            </div>
+        </header>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="card card-purple">
+                <div class="icon-badge">🪐</div>
+                <h3>100% Personalized</h3>
+                <p>Your child becomes the main character. Their name, age, and favorite hobbies are beautifully woven straight into the plot.</p>
+            </div>
+            <div class="card card-pink">
+                <div class="icon-badge">🦄</div>
+                <h3>Behavioral Lessons</h3>
+                <p>Want them to clean up their toys or be brave at school? We transform important life lessons into fun, magical quests.</p>
+            </div>
+            <div class="card card-blue">
+                <div class="icon-badge">🌙</div>
+                <h3>A Real Bedtime Ritual</h3>
+                <p>A brand-new chapter lands every week, so story time becomes a moment your family looks forward to together.</p>
+            </div>
+            <div class="card card-gold">
+                <div class="icon-badge">📚</div>
+                <h3>A Keepsake Library</h3>
+                <p>Every story is saved to your child's own digital bookshelf — a growing collection they'll want to revisit for years.</p>
+            </div>
+        </section>
+
+        <!-- Story Preview -->
+        <section class="story-preview">
+            <div style="max-width: 600px; margin: 0 auto;">
+                <span style="color: var(--magic-purple); font-weight: bold; font-size: 14px;">✨ LIVE STORY PREVIEW</span>
+                <h2>Chapter 1: Leo and the Starry Dragon</h2>
+                
+                <!-- MARCADOR DE IMAGEN 2: Imagen interna del cuento de ejemplo -->
+                <div class="image-placeholder" style="max-width: 100%; height: 250px;">
+                    🎨 🐉 <br>
+                    <strong>[Ilustración 2: Escena del cuento de ejemplo - Niño astronauta con un dragón]</strong>
+                </div>
+
+                <p>...Leo fastened his shiny astronaut helmet and looked out the window of his rocket ship. Right there, sitting on a fluffy moon-cloud, was a friendly purple dragon who was forgetting to brush his teeth! "Don't worry," Leo said bravely, holding up his magical sparkling toothbrush...</p>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section class="pricing">
+            <h3 style="font-size: 28px; margin-top: 0; color: var(--deep-violet);">The Weekly Magic Plan</h3>
+            <div class="price">$29<span>/month</span></div>
+            <p style="font-size: 18px;">Get 4 fully customized digital storybooks per month.</p>
+            <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 35px;">Cancel anytime with one click. 100% Satisfaction Guarantee.</p>
+            <a href="#" class="cta-btn">Subscribe Now ($29/mo)</a>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Pocket Tales. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
